@@ -95,8 +95,14 @@ const ShortenItem = ({ originalUrl, shortUrl, clickCount, createdDate }) => {
             <Link
               target="_"
               className="text-[17px]  font-montserrat font-[600] text-linkColor"
-              to={
+              /* to={
                 import.meta.env.VITE_REACT_FRONT_END_URL + "/" + `${shortUrl}`
+              } */
+
+              to={
+                // import.meta.env.VITE_BACKEND_URL +
+                "http://localhost:8080/track/bitly?shortUrl=https://bit.ly/" +
+                `${shortUrl}`
               }
             >
               {subDomain + "/" + `${shortUrl}`}
@@ -132,7 +138,7 @@ const ShortenItem = ({ originalUrl, shortUrl, clickCount, createdDate }) => {
           </div>
         </div>
 
-        <div className="flex flex-2 justify-center sm:justify-end items-center gap-4 flex-wrap sm:flex-nowrap sm:items-center">
+        <div className="flex flex-2 justify-center sm:justify-end items-end gap-4 flex-wrap sm:flex-nowrap sm:items-center">
           <div
             onClick={() => deleteShortUrl(shortUrl)}
             className="flex cursor-pointer gap-1 items-center bg-red-600 py-2 font-semibold shadow-md shadow-slate-500 px-6 rounded-md text-white "
