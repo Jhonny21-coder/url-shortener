@@ -89,10 +89,8 @@ const ShortenItem = ({ originalUrl, shortUrl, clickCount, createdDate }) => {
     <div
       className={`bg-slate-100 shadow-lg border border-dotted  border-slate-500 px-6 sm:py-1 py-3 rounded-md  transition-all duration-100 `}
     >
-      <div
-        className={`flex sm:flex-row flex-col  sm:justify-between w-full sm:gap-0 gap-5 py-5 `}
-      >
-        <div className="flex-1 sm:space-y-1 max-w-full overflow-x-auto overflow-y-hidden ">
+      <div>
+        <div className="flex-1 items-center justify-center sm:space-y-1 max-w-full overflow-x-auto overflow-y-hidden ">
           <div className="text-slate-900 pb-1 sm:pb-0   flex items-center gap-2 ">
             <Link
               target="_"
@@ -134,7 +132,7 @@ const ShortenItem = ({ originalUrl, shortUrl, clickCount, createdDate }) => {
           </div>
         </div>
 
-        <div className="flex  flex-1  sm:justify-end items-center gap-4">
+        <div className="flex flex-2 justify-center sm:justify-end items-center gap-4 flex-wrap sm:flex-nowrap sm:items-center">
           <div
             onClick={() => deleteShortUrl(shortUrl)}
             className="flex cursor-pointer gap-1 items-center bg-red-600 py-2 font-semibold shadow-md shadow-slate-500 px-6 rounded-md text-white "
