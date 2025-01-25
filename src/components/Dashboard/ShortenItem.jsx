@@ -101,7 +101,7 @@ const ShortenItem = ({ originalUrl, shortUrl, clickCount, createdDate }) => {
 
               to={
                 import.meta.env.VITE_BACKEND_URL +
-                "/track/bitly?shortUrl=https://bit.ly/" +
+                "/track/bitly/https://bit.ly/" +
                 `${shortUrl}`
               }
             >
