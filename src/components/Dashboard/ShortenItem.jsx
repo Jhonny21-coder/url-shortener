@@ -28,7 +28,7 @@ const ShortenItem = ({ originalUrl, shortUrl, clickCount, createdDate }) => {
   );
 
   const deleteShortUrl = async (shortUrl) => {
-    //setLoader(true);
+    setLoader(true);
     try {
       await api.delete(`/api/urls/${shortUrl}`, {
         headers: {
@@ -54,12 +54,14 @@ const ShortenItem = ({ originalUrl, shortUrl, clickCount, createdDate }) => {
     }
     setAnalyticToggle(!analyticToggle);
   };
-
   const fetchMyShortUrl = async () => {
     setLoader(true);
+    const currentYear = new Date().getFullYear();
+    const startDate = `${currentYear}-01-01T00:00:00`;
+    const endDate = `${currentYear}-12-31T23:59:59`;
     try {
       const { data } = await api.get(
-        `/api/urls/analytics/${selectedUrl}?startDate=2024-12-01T00:00:00&endDate=2025-12-31T23:59:59`,
+        `/api/urls/analytics/${selectedUrl}?startDate=${startDate}&endDate=${endDate}`,
         {
           headers: {
             "Content-Type": "application/json",
@@ -95,10 +97,6 @@ const ShortenItem = ({ originalUrl, shortUrl, clickCount, createdDate }) => {
             <Link
               target="_"
               className="text-[17px]  font-montserrat font-[600] text-linkColor"
-              /* to={
-                import.meta.env.VITE_REACT_FRONT_END_URL + "/" + `${shortUrl}`
-              } */
-
               to={
                 import.meta.env.VITE_BACKEND_URL +
                 "/track/bitly?bitlyUrl=https://bit.ly/" +
